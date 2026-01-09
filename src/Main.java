@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -35,6 +37,12 @@ public class Main {
         vesuvius.addPage(timpaniPage);
         vesuvius.addPage(mallets);
 
-        System.out.println(vesuvius);
+        //System.out.println(vesuvius);
+        ArrayList<ArrayList<Double>> matrix = new ArrayList<>(List.of(
+            new ArrayList<>(List.of(1.5, 2.5)),         // Row 0
+            new ArrayList<>(List.of(10.0)),             // Row 1 (Jagged)
+            new ArrayList<>(List.of(5.75, 8.25, 12.0))  // Row 2
+        ));
+        System.out.println(Song.matrixToString(matrix));
     }
 }

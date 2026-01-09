@@ -7,6 +7,22 @@ public class Song {
     public Song(String name){
         this.name = name;
     }
+
+    public static double[][] fitMatrix(){
+        ArrayList<ArrayList<Double>> matrix = new ArrayList<>();
+        return matrix;
+    }
+    public static String matrixToString(ArrayList<ArrayList<Double>> matrix){
+        String returnString = "";
+        for (int i = 0; i < matrix.size(); i++){
+            for (int j = 0; j < matrix.get(i).size(); j++){
+                returnString += matrix.get(i).get(j) + ", ";
+            }
+            returnString += "\n";
+        }
+        return returnString;
+    }
+
     @Override
     public String toString(){
         String returnString = name + " (Song)";
