@@ -17,9 +17,19 @@ public class Instrument {
     @Override
     public String toString() {
         String returnString = "\n" + name + " (instrument)";
-        returnString += "\n\t rhythm = " + rhythm;
-        returnString += "\n\t technique = " + technique;
-        returnString += "\n\t loudness = " + loudness;
+        returnString += "\n\trhythm = " + rhythm;
+        returnString += "\n\ttechnique = " + technique;
+        returnString += "\n\tloudness = " + loudness;
+        if (touching.size()>0){
+            returnString += "\n\ttouching (instruments) = {";
+            for (int i = 0; i < touching.size(); i++){
+                returnString += "\n\t\t" + touching.get(i).name +((i==touching.size()-1) ? "" : ",");
+            }
+            returnString += "\n\t}";
+        }
+        else{
+            returnString += "\n\ttouching (instruments) = {}";
+        }
         return returnString;
     }
 
@@ -52,6 +62,7 @@ public class Instrument {
     }
     public void addTouching(Instrument touched) {
         this.touching.add(touched);
+        touched.gettingTouched(this);
     }
     private void gettingTouched(Instrument toucher){
         this.touching.add(toucher);

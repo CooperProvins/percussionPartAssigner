@@ -13,9 +13,19 @@ public class Page {
         String returnString = "\n" + this.name + " (page)";
         for (Instrument instrument : this.instruments) {
             returnString += "\n\t" + instrument.getName() + " (instrument)";
-            returnString += "\n\t\t rhythm = " + instrument.getRhythm();
-            returnString += "\n\t\t technique = " + instrument.getTechnique();
-            returnString += "\n\t\t loudness = " + instrument.getLoudness();
+            returnString += "\n\t\trhythm = " + instrument.getRhythm();
+            returnString += "\n\t\ttechnique = " + instrument.getTechnique();
+            returnString += "\n\t\tloudness = " + instrument.getLoudness();
+            if (instrument.getTouching().size()>0){
+                returnString += "\n\t\ttouching (instruments) = {";
+                for (int i = 0; i < instrument.getTouching().size(); i++){
+                    returnString += "\n\t\t\t" + instrument.getTouching().get(i).getName() +((i==instrument.getTouching().size()-1) ? "" : ",");
+                }
+                returnString += "\n\t\t}";
+            }
+            else{
+                returnString += "\n\t\ttouching (instruments) = {}";
+            }
         }
         return returnString;
     }

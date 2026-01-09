@@ -2,12 +2,14 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        Instrument windChimes1 = new Instrument("Wind Chimes 1",1,1,2);
-        Instrument windChimes2 = new Instrument("Wind Chimes 2",4,3,4);
-        Instrument windChimes3 = new Instrument("Wind Chimes 3",5,5,1);
-        Instrument triangle = new Instrument("Triangle",1,1,3);
-        Instrument timpani = new Instrument("Timpani",2,5,2);
-        Instrument marimba = new Instrument("Marimba",3,4,1);
+        Instrument windChimes1 = new Instrument("Wind Chimes 1",1,3,7);
+        Instrument windChimes2 = new Instrument("Wind Chimes 2",4,6,9);
+        Instrument windChimes3 = new Instrument("Wind Chimes 3",9,10,3);
+        Instrument triangle = new Instrument("Triangle",2,2,3);
+        Instrument timpani = new Instrument("Timpani",6,5,2);
+        Instrument marimba = new Instrument("Marimba",9,6,2);
+
+        windChimes1.addTouching(triangle);
 
         Page percussion1 = new Page("Percussion 1");
         Page percussion2 = new Page("Percussion 2");
@@ -16,7 +18,7 @@ public class Main {
 
         Song vesuvius = new Song("Vesuvius");
 
-        Person Cooper = new Person("Cooper",4,4,4);
+        Person Cooper = new Person("Cooper",7,9,6);
 
         percussion1.addInstrument(windChimes1);
         percussion1.addInstrument(windChimes2);
@@ -33,6 +35,6 @@ public class Main {
         vesuvius.addPage(timpaniPage);
         vesuvius.addPage(mallets);
 
-        System.out.println(Cooper);
+        System.out.println(vesuvius);
     }
 }

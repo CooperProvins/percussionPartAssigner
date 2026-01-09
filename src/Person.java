@@ -14,9 +14,9 @@ public class Person {
     @Override
     public String toString() {
         String returnString = "\n" + name + " (person)";
-        returnString += "\n\t rhythm = " + rhythm;
-        returnString += "\n\t technique = " + technique;
-        returnString += "\n\t loudness = " + loudness;
+        returnString += "\n\trhythm = " + rhythm;
+        returnString += "\n\ttechnique = " + technique;
+        returnString += "\n\tloudness = " + loudness;
         return returnString;
     }
 

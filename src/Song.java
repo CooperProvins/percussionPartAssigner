@@ -14,9 +14,19 @@ public class Song {
             returnString += "\n\t" + page.getName() + " (page)";
             for (Instrument instrument : page.getInstruments()){
                 returnString += "\n\t\t" + instrument.getName() + " (instrument)";
-                returnString += "\n\t\t\t rhythm = " + instrument.getRhythm();
-                returnString += "\n\t\t\t technique = " + instrument.getTechnique();
-                returnString += "\n\t\t\t loudness = " + instrument.getLoudness();
+                returnString += "\n\t\t\trhythm = " + instrument.getRhythm();
+                returnString += "\n\t\t\ttechnique = " + instrument.getTechnique();
+                returnString += "\n\t\t\tloudness = " + instrument.getLoudness();
+                if (instrument.getTouching().size()>0){
+                    returnString += "\n\t\t\ttouching (instruments) = {";
+                    for (int i = 0; i < instrument.getTouching().size(); i++){
+                        returnString += "\n\t\t\t\t" + instrument.getTouching().get(i).getName() +((i==instrument.getTouching().size()-1) ? "" : ",");
+                    }
+                    returnString += "\n\t\t\t}";
+                }
+                else{
+                    returnString += "\n\t\t\ttouching (instruments) = {}";
+                }
             }
         }
         return returnString;
