@@ -7,19 +7,21 @@ public class Instrument {
     private int loudness;
     private ArrayList<Instrument> touching = new ArrayList<>();
 
-    public Instrument(String name, int rhythm, int technique, int loudness){
+    public Instrument(Part part, String name, int rhythm, int technique, int loudness){
         this.name = name;
         this.rhythm = rhythm;
         this.technique = technique;
         this.loudness = loudness;
+        part.addInstrument(this);
     }
 
     @Override
     public String toString() {
-        String returnString = "\n" + name + " (instrument)";
+        String returnString = name + " (instrument){";
         returnString += "\n\t rhythm = " + rhythm;
         returnString += "\n\t technique = " + technique;
         returnString += "\n\t loudness = " + loudness;
+        returnString += "\n}";
         return returnString;
     }
 

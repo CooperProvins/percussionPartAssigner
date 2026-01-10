@@ -9,16 +9,30 @@ public class Song {
     }
     @Override
     public String toString(){
-        String returnString = name + " (Song)";
+        String returnString = name + " (Song){";
+        returnString += "\n\tPages = {";
         for (Page page : pages){
-            returnString += "\n\t" + page.getName() + " (page)";
-            for (Instrument instrument : page.getInstruments()){
-                returnString += "\n\t\t" + instrument.getName() + " (instrument)";
-                returnString += "\n\t\t\t rhythm = " + instrument.getRhythm();
-                returnString += "\n\t\t\t technique = " + instrument.getTechnique();
-                returnString += "\n\t\t\t loudness = " + instrument.getLoudness();
+            returnString += "\n\t\t" + page.getName() + " (page) = {";
+            returnString += "\n\t\t\tParts = {";
+            for (Part part : page.getParts()) {
+                returnString += "\n\t\t\t\t" + part.getName() + " (part) = {";
+                returnString += "\n\t\t\t\t\trhythm = " + part.getRhythm();
+                returnString += "\n\t\t\t\t\ttechnique = " + part.getTechnique();
+                returnString += "\n\t\t\t\t\tloudness = " + part.getLoudness();
+                returnString += "\n\t\t\t\t\tinstruments = {";
+                for (Instrument instrument : part.getInstruments()){
+                    returnString += "\n\t\t\t\t\t" + instrument.getName() + " (instrument) = {";
+                    returnString += "\n\t\t\t\t\t\t rhythm = " + instrument.getRhythm();
+                    returnString += "\n\t\t\t\t\t\t technique = " + instrument.getTechnique();
+                    returnString += "\n\t\t\t\t\t\t loudness = " + instrument.getLoudness();
+                    returnString += "\n\t\t\t\t\t}";
+                }
+                returnString += "\n\t\t\t\t}";
             }
+            returnString += "\n\t\t\t}";
+            returnString += "\n\t\t}";
         }
+        returnString += "\n\t}";
         return returnString;
     }
 
