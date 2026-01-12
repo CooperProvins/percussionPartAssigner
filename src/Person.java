@@ -24,6 +24,20 @@ public class Person {
         return returnString;
     }
 
+    public double calculateFit(Part part){
+        return Math.pow(1.5, part.getRhythm()-rhythm)+Math.pow(1.5, part.getTechnique()-technique)+Math.pow(1.5, part.getLoudness()-loudness);
+    }
+    public double calculateFit(Instrument instrument){
+        return Math.pow(1.5, instrument.getRhythm()-rhythm)+Math.pow(1.5, instrument.getTechnique()-technique)+Math.pow(1.5, instrument.getLoudness()-loudness);
+    }
+
+    public static ArrayList<String> getPeopleNames(){
+        ArrayList<String> returnArray = new ArrayList<>();
+        for (Person person : People){
+            returnArray.add(person.getName());
+        }
+        return returnArray;
+    }
     public static ArrayList<Person> getPeople() {
         return People;
     }

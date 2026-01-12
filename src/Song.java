@@ -36,6 +36,35 @@ public class Song {
         return returnString;
     }
 
+    public ArrayList<ArrayList<Double>> fitMatrix(){
+        ArrayList<ArrayList<Double>> returnArray = new ArrayList<>();
+        ArrayList<Person> people = Person.getPeople();
+        for (int i = 0; i < people.size(); i++) {
+            returnArray.add(new ArrayList<>());
+            for (Part part : getTotalParts()) {
+                returnArray.get(i).add(people.get(i).calculateFit(part));
+            }
+        }
+        return returnArray;
+    }
+    public ArrayList<Part> getTotalParts(){
+        ArrayList<Part> totalParts = new ArrayList<>();
+        for (Page page : pages){
+            for (Part part : page.getParts()){
+                totalParts.add(part);
+            }
+        }
+        return totalParts;
+    }
+    public ArrayList<String> getTotalPartsNames(){
+        ArrayList<String> totalPartsNames = new ArrayList<>();
+        for (Page page : pages){
+            for (Part part : page.getParts()){
+                totalPartsNames.add(part.getName());
+            }
+        }
+        return totalPartsNames;
+    }
     public Page findPage(String name){
         for (int i = 0; i < pages.size(); i++){
             if (pages.get(i).getName().equals(name)){

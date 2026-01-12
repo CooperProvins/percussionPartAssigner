@@ -5,12 +5,14 @@ public class Part {
     private int technique;
     private int loudness;
     private int count;
+    private String name;
     private ArrayList<Instrument> instruments = new ArrayList<>();
 
-    public Part(Page page){
+    public Part(Page page, String name){
         rhythm = -1;
         technique = -1;
         loudness = -1;
+        this.name = name;
         page.addPart(this);
         count = page.getParts().size();
     }
@@ -34,9 +36,21 @@ public class Part {
         return returnString;
     }
 
-    public String getName(){
-        return "Part " + count;
+    public ArrayList<String> getPartNames(ArrayList<Part> parts){
+        ArrayList<String> returnArray = new ArrayList<>();
+        for (Part part : parts){
+            returnArray.add(part.getName());
+        }
+        return returnArray;
     }
+    public String getName(){
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public int getCount() {
         return count;
     }
@@ -69,5 +83,25 @@ public class Part {
     }
     public void addInstrument(Instrument instrument){
         this.instruments.add(instrument);
+        calculateStats();
+    }
+    private void calculateStats(){
+        int rhythmMax = instruments.get(0).getRhythm();
+        int techniqueMax = instruments.get(0).getTechnique();
+        int loudnessMax = instruments.get(0).getLoudness();
+        for (Instrument instrument : instruments){
+            if (instrument.getRhythm()>rhythmMax){
+                rhythmMax = instrument.getRhythm();
+            }
+            if (instrument.getTechnique()>techniqueMax){
+                techniqueMax = instrument.getTechnique();
+            }
+            if (instrument.getLoudness()>loudnessMax){
+                loudnessMax = instrument.getLoudness();
+            }
+        }
+        this.rhythm = rhythmMax;
+        this.technique = techniqueMax;
+        this.loudness = loudnessMax;
     }
 }
