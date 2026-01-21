@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
@@ -33,7 +34,34 @@ public class Main {
         Person natalee = new Person("Natalee", 2, 2, 1);
         Person piper = new Person("Piper", 7, 7, 5);
 
+        //System.out.println(jack);
         matrixPrint(vesuvius.fitMatrix(),vesuvius.getTotalPartsNames(),Person.getPeopleNames());
+        vesuvius.assignParts();
+        System.out.println(jack);
+
+    }
+    public static double[][] doubleDoubleArrayListToArray(ArrayList<ArrayList<Double>> list2D){
+        if (list2D == null) return null;
+
+        // Initialize the outer array with the number of rows (inner lists)
+        double[][] array2D = new double[list2D.size()][];
+
+        for (int i = 0; i < list2D.size(); i++) {
+            ArrayList<Double> innerList = list2D.get(i);
+            
+            // Create a primitive array for the current row
+            double[] innerArray = new double[innerList.size()];
+            
+            for (int j = 0; j < innerList.size(); j++) {
+                // Java automatically unboxes Double objects to double primitives
+                innerArray[j] = innerList.get(j);
+            }
+            
+            // Assign the primitive row to the 2D array
+            array2D[i] = innerArray;
+        }
+
+        return array2D;
     }
     public static void matrixPrint(ArrayList<ArrayList<Double>> matrix, ArrayList<String> coloumnNames, ArrayList<String> rowNames){
         int spacing = 30;

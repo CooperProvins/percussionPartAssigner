@@ -17,13 +17,25 @@ public class Person {
 
     @Override
     public String toString() {
-        String returnString = "\n" + name + " (person)";
+        String returnString = "\n" + name + " (person) {";
         returnString += "\n\trhythm = " + rhythm;
         returnString += "\n\ttechnique = " + technique;
         returnString += "\n\tloudness = " + loudness;
+        returnString += "\n}";
         return returnString;
     }
-
+    public static String allToString() {
+        String returnString = "People {";
+        for (Person person : Person.People){
+            returnString += "\n\t" + person.name + " (person) {";
+            returnString += "\n\t\trhythm = " + person.rhythm;
+            returnString += "\n\t\ttechnique = " + person.technique;
+            returnString += "\n\t\tloudness = " + person.loudness;
+            returnString += "\n\t}";
+        }
+        
+        return returnString;
+    }
     public double calculateFit(Part part){
         return Math.pow(1.5, part.getRhythm()-rhythm)+Math.pow(1.5, part.getTechnique()-technique)+Math.pow(1.5, part.getLoudness()-loudness);
     }

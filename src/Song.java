@@ -36,6 +36,13 @@ public class Song {
         return returnString;
     }
 
+    public void assignParts(){
+        HungarianAlgorithm set = new HungarianAlgorithm(Main.doubleDoubleArrayListToArray(this.fitMatrix()));
+        for (int i = 0; i < Person.getPeople().size(); i++){
+            Person person = Person.getPeople().get(i);
+            person.setPart(this.getTotalParts().get(i));
+        }
+    }
     public ArrayList<ArrayList<Double>> fitMatrix(){
         ArrayList<ArrayList<Double>> returnArray = new ArrayList<>();
         ArrayList<Person> people = Person.getPeople();
