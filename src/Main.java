@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
@@ -31,13 +30,11 @@ public class Main {
         // initialize people
         Person jack = new Person("Jack", 10, 10, 10);
         Person cooper = new Person("Cooper", 6, 8, 7);
-        Person natalee = new Person("Natalee", 2, 2, 1);
+        Person natalee = new Person("Natalee", 2, 2, 2);
         Person piper = new Person("Piper", 7, 7, 5);
 
-        //System.out.println(jack);
-        matrixPrint(vesuvius.fitMatrix(),vesuvius.getTotalPartsNames(),Person.getPeopleNames());
+        vesuvius.printFitMatrix();
         vesuvius.assignParts();
-        System.out.println(jack);
 
     }
     public static double[][] doubleDoubleArrayListToArray(ArrayList<ArrayList<Double>> list2D){

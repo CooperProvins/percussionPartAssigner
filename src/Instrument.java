@@ -1,11 +1,8 @@
-import java.util.ArrayList;
-
 public class Instrument {
     private String name;
     private int rhythm;
     private int technique;
     private int loudness;
-    private ArrayList<Instrument> touching = new ArrayList<>();
 
     public Instrument(Part part, String name, int rhythm, int technique, int loudness){
         this.name = name;
@@ -45,18 +42,6 @@ public class Instrument {
     }
     public void setRhythm(int rhythm) {
         this.rhythm = rhythm;
-    }
-    public ArrayList<Instrument> getTouching() {
-        return touching;
-    }
-    public void setTouching(ArrayList<Instrument> touching) {
-        this.touching = touching;
-    }
-    public void addTouching(Instrument touched) {
-        this.touching.add(touched);
-    }
-    private void gettingTouched(Instrument toucher){
-        this.touching.add(toucher);
     }
     public void setName(String name) {
         this.name = name;

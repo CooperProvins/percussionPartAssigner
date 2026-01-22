@@ -6,6 +6,7 @@ public class Part {
     private int loudness;
     private int count;
     private String name;
+    private Page page;
     private ArrayList<Instrument> instruments = new ArrayList<>();
 
     public Part(Page page, String name){
@@ -14,6 +15,7 @@ public class Part {
         loudness = -1;
         this.name = name;
         page.addPart(this);
+        this.page = page;
         count = page.getParts().size();
     }
 
@@ -50,7 +52,12 @@ public class Part {
     public void setName(String name) {
         this.name = name;
     }
-
+    public Page getPage() {
+        return page;
+    }
+    public void setPage(Page page) {
+        this.page = page;
+    }
     public int getCount() {
         return count;
     }
