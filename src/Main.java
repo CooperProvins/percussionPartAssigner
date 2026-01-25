@@ -5,6 +5,8 @@ public class Main {
         // initialize songs
         Song vesuvius = new Song("Vesuvius");
 
+        Person.setFitMethod("Easy");
+
         // initialize pages
         Page percussion1 = new Page(vesuvius, "Percussion 1");
         Page percussion2 = new Page(vesuvius,"Percussion 2");

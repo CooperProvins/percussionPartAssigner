@@ -5,6 +5,8 @@ public class Person {
     private int rhythm;
     private int technique;
     private int loudness;
+    public static String EasyorBestorMix = "Easy"; 
+    //Options are "Easy", "Best", and "Mix"
     private static ArrayList<Person> People = new ArrayList<>();
 
     public Person(String name, int rhythm, int technique, int loudness){
@@ -37,11 +39,28 @@ public class Person {
         return returnString;
     }
     public double calculateFit(Part part){
-        return Math.pow(1.5, part.getRhythm()-rhythm)+Math.pow(1.5, part.getTechnique()-technique)+Math.pow(1.5, part.getLoudness()-loudness);
+        if (this.EasyorBestorMix.equals("Easy")){
+            return Math.pow(1.5, part.getRhythm()-rhythm)+Math.pow(1.5, part.getTechnique()-technique)+Math.pow(1.5, part.getLoudness()-loudness);
+        }
+        else if (this.EasyorBestorMix.equals("Best")){
+            return Math.pow(1.5, Math.abs(part.getRhythm()-rhythm))+Math.pow(1.5, Math.abs(part.getTechnique()-technique))+Math.pow(1.5, Math.abs(part.getLoudness()-loudness));
+        }
+        else if (this.EasyorBestorMix.equals("Mix")){
+            return Math.pow(1.5, part.getRhythm()-rhythm)+Math.pow(1.5, part.getTechnique()-technique)+Math.pow(1.5, part.getLoudness()-loudness) + Math.pow(1.5, Math.abs(part.getRhythm()-rhythm))+Math.pow(1.5, Math.abs(part.getTechnique()-technique))+Math.pow(1.5, Math.abs(part.getLoudness()-loudness));
+        }
+        return -1;
     }
     public double calculateFit(Instrument instrument){
-        return Math.pow(1.5, instrument.getRhythm()-rhythm)+Math.pow(1.5, instrument.getTechnique()-technique)+Math.pow(1.5, instrument.getLoudness()-loudness);
-    }
+        if (this.EasyorBestorMix.equals("Easy")){
+            return Math.pow(1.5, instrument.getRhythm()-rhythm)+Math.pow(1.5, instrument.getTechnique()-technique)+Math.pow(1.5, instrument.getLoudness()-loudness);
+        }
+        else if (this.EasyorBestorMix.equals("Best")){
+            return Math.pow(1.5, Math.abs(instrument.getRhythm()-rhythm))+Math.pow(1.5, Math.abs(instrument.getTechnique()-technique))+Math.pow(1.5, Math.abs(instrument.getLoudness()-loudness));
+        }
+        else if (this.EasyorBestorMix.equals("Mix")){
+            return Math.pow(1.5, instrument.getRhythm()-rhythm)+Math.pow(1.5, instrument.getTechnique()-technique)+Math.pow(1.5, instrument.getLoudness()-loudness) + Math.pow(1.5, Math.abs(instrument.getRhythm()-rhythm))+Math.pow(1.5, Math.abs(instrument.getTechnique()-technique))+Math.pow(1.5, Math.abs(instrument.getLoudness()-loudness));
+        }
+        return -1;    }
 
     public static ArrayList<String> getPeopleNames(){
         ArrayList<String> returnArray = new ArrayList<>();
@@ -76,6 +95,15 @@ public class Person {
     }
     public void setRhythm(int rhythm) {
         this.rhythm = rhythm;
+    }
+    public static void setFitMethod(String easyorBestorMix) {
+        if (!easyorBestorMix.equals("Easy") && !easyorBestorMix.equals("Best") && !easyorBestorMix.equals("Mix")){
+            throw new IllegalArgumentException("Fit method must be 'Easy', 'Best', or 'Mix'");
+        }
+        EasyorBestorMix = easyorBestorMix;
+    }
+    public static String getFitMethod() {
+        return EasyorBestorMix;
     }
     public void setTechnique(int technique) {
         this.technique = technique;

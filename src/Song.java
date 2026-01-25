@@ -40,7 +40,12 @@ public class Song {
         HungarianAlgorithm set = new HungarianAlgorithm(Main.doubleDoubleArrayListToArray(this.fitMatrix()));
         for (int i = 0; i < Person.getPeople().size(); i++){
             Person person = Person.getPeople().get(i);
-            System.out.println(person.getName() + " <-- " + this.getTotalParts().get(i).getName() + " (" + this.getTotalParts().get(i).getPage().getName() + " Page)");
+            System.out.print(person.getName() + " <-- " + this.getTotalParts().get(i).getName() + " (" + this.getTotalParts().get(i).getPage().getName() + " Page {");
+            for (int j = 0; j < this.getTotalParts().get(i).getInstruments().size(); j++){
+                System.out.print(this.getTotalParts().get(i).getInstruments().get(j).getName());
+                System.out.print(j == this.getTotalParts().get(i).getInstruments().size() - 1 ? "" : ", ");
+            }
+            System.out.println("})");
         }
     }
     public ArrayList<ArrayList<Double>> fitMatrix(){
