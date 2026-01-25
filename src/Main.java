@@ -5,8 +5,6 @@ public class Main {
         // initialize songs
         Song vesuvius = new Song("Vesuvius");
 
-        Person.setFitMethod("Easy");
-
         // initialize pages
         Page percussion1 = new Page(vesuvius, "Percussion 1");
         Page percussion2 = new Page(vesuvius,"Percussion 2");
@@ -35,6 +33,10 @@ public class Main {
         Person natalee = new Person("Natalee", 2, 2, 2);
         Person piper = new Person("Piper", 7, 7, 5);
 
+        // set fitting method
+        Person.setFitMethod("Easy");
+        
+        // print matrix, assign parts
         vesuvius.printFitMatrix();
         vesuvius.assignParts();
 
