@@ -3,15 +3,18 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
         // initialize songs
+        // Song name = new Song("Song Name");
         Song vesuvius = new Song("Vesuvius");
 
         // initialize pages
+        // Page name = new Page(song, "Page Name");
         Page percussion1 = new Page(vesuvius, "Percussion 1");
         Page percussion2 = new Page(vesuvius,"Percussion 2");
         Page timpaniPage = new Page(vesuvius,"Timpani");
         Page mallets = new Page(vesuvius,"Mallets");
 
         // initialize parts
+        // Part name = new Part(page, "Part Name");
         Part part1 = new Part(percussion1, "Wind Chimes 1");
         Part part2 = new Part(percussion1, "Wind Chimes 2");
         Part part3 = new Part(percussion2, "Wind Chimes Triangle");
@@ -19,6 +22,10 @@ public class Main {
         Part malletsPart = new Part(mallets, "Mallets Part");
 
         // initialize instruments
+        // rhythm is how complex the rhythms are
+        // technique is how difficult the instruments is to play
+        // loudness is how exposed the part is
+        // Instrument name = new Instrument(part, "Instrument Name", rhythm, technique, loudness);
         Instrument windChimes1 = new Instrument(part1,"Wind Chimes 1",4,2,3);
         Instrument windChimes2 = new Instrument(part2, "Wind Chimes 2",8,2,10);
         Instrument windChimes3 = new Instrument(part3, "Wind Chimes 3",9,2,1);
@@ -28,18 +35,26 @@ public class Main {
         Instrument glockenspiel = new Instrument(malletsPart, "Glockenspiel", 4,6,7);
 
         // initialize people
+        // rhythm is ability to play complex rhythms (snare)
+        // technique is ability to play difficult instruments (mallets, timpani)
+        // loudness is ability and willingness to play exposed parts (piano solo)
         Person jack = new Person("Jack", 10, 10, 10);
         Person cooper = new Person("Cooper", 6, 8, 7);
         Person natalee = new Person("Natalee", 2, 2, 2);
         Person piper = new Person("Piper", 7, 7, 5);
 
-        // set fitting method
-        Person.setFitMethod("Easy");
+        // set standards and parameters
+        // fit method is Easy, Best, or Mix
+        //      easy fits to make the parts easiest for each participant
+        //      best fits to challenge each participant with parts that are close to their ability level
+        //      mix is a combination of both, optimizing for both challenge and ease
+        // sharpness amplifies the danger of being assigned a part above any of your skill levels
+        Person.setFitMethod("Mix");
+        Person.setSharpness(1.3);
         
         // print matrix, assign parts
-        vesuvius.printFitMatrix();
+        vesuvius.printNormalFitMatrix();
         vesuvius.assignParts();
-
     }
     public static double[][] doubleDoubleArrayListToArray(ArrayList<ArrayList<Double>> list2D){
         if (list2D == null) return null;

@@ -40,13 +40,17 @@ public class Song {
         HungarianAlgorithm set = new HungarianAlgorithm(Main.doubleDoubleArrayListToArray(this.fitMatrix()));
         for (int i = 0; i < Person.getPeople().size(); i++){
             Person person = Person.getPeople().get(i);
-            System.out.print(person.getName() + " <-- " + this.getTotalParts().get(i).getName() + " (" + this.getTotalParts().get(i).getPage().getName() + " Page {");
-            for (int j = 0; j < this.getTotalParts().get(i).getInstruments().size(); j++){
-                System.out.print(this.getTotalParts().get(i).getInstruments().get(j).getName());
-                System.out.print(j == this.getTotalParts().get(i).getInstruments().size() - 1 ? "" : ", ");
+            System.out.print(person.getName() + " <-- " + this.getTotalParts().get(i).getPage().getName());
+            if (this.getTotalParts().get(i).getPage().getParts().size() != 1){
+                System.out.print("\n\t");
+                for (int j = 0; j < this.getTotalParts().get(i).getInstruments().size(); j++){
+                    System.out.print(this.getTotalParts().get(i).getInstruments().get(j).getName());
+                    System.out.print(j == this.getTotalParts().get(i).getInstruments().size() - 1 ? "" : ", ");
+                }
             }
-            System.out.println("})");
+            System.out.println();
         }
+        System.out.println();
     }
     public ArrayList<ArrayList<Double>> fitMatrix(){
         ArrayList<ArrayList<Double>> returnArray = new ArrayList<>();
@@ -57,9 +61,20 @@ public class Song {
                 returnArray.get(i).add(people.get(i).calculateFit(part));
             }
         }
+        double max = Double.NEGATIVE_INFINITY;
+        for (ArrayList<Double> row : returnArray){
+            for (Double value : row){
+                max = Math.max(max, value);
+            }
+        }
+        for (int i = 0; i < returnArray.size(); i++){
+            for (int j = 0; j < returnArray.get(i).size(); j++){
+                returnArray.get(i).set(j, returnArray.get(i).get(j)/max*10.0);
+            }
+        }
         return returnArray;
     }
-    public void printFitMatrix(){
+    public void printNormalFitMatrix(){
         Main.matrixPrint(this.fitMatrix(),this.getTotalPartsNames(),Person.getPeopleNames());
         System.out.println();
     }
