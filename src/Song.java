@@ -38,14 +38,15 @@ public class Song {
 
     public void assignParts(){
         HungarianAlgorithm set = new HungarianAlgorithm(Main.doubleDoubleArrayListToArray(this.fitMatrix()));
+        int[] assignment = set.execute();
         for (int i = 0; i < Person.getPeople().size(); i++){
             Person person = Person.getPeople().get(i);
-            System.out.print(person.getName() + " <-- " + this.getTotalParts().get(i).getPage().getName());
-            if (this.getTotalParts().get(i).getPage().getParts().size() != 1){
+            System.out.print(person.getName() + " <-- " + this.getTotalParts().get(assignment[i]).getPage().getName());
+            if (this.getTotalParts().get(assignment[i]).getPage().getParts().size() != 1){
                 System.out.print("\n\t");
-                for (int j = 0; j < this.getTotalParts().get(i).getInstruments().size(); j++){
-                    System.out.print(this.getTotalParts().get(i).getInstruments().get(j).getName());
-                    System.out.print(j == this.getTotalParts().get(i).getInstruments().size() - 1 ? "" : ", ");
+                for (int j = 0; j < this.getTotalParts().get(assignment[i]).getInstruments().size(); j++){
+                    System.out.print(this.getTotalParts().get(assignment[i]).getInstruments().get(j).getName());
+                    System.out.print(j == this.getTotalParts().get(assignment[i]).getInstruments().size() - 1 ? "" : ", ");
                 }
             }
             System.out.println();

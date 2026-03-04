@@ -15,9 +15,9 @@ public class Main {
 
         // initialize parts
         // Part name = new Part(page, "Part Name");
-        Part part1 = new Part(percussion1, "Wind Chimes 1");
-        Part part2 = new Part(percussion1, "Wind Chimes 2");
-        Part part3 = new Part(percussion2, "Wind Chimes Triangle");
+        Part part1 = new Part(percussion1, "Wind Chimes 1 [P1]");
+        Part part2 = new Part(percussion1, "Wind Chimes 2 [P2]");
+        Part part3 = new Part(percussion2, "Wind Chimes Triangle [P3]");
         Part timpaniPart = new Part(timpaniPage, "Timpani");
         Part malletsPart = new Part(mallets, "Mallets Part");
 
@@ -39,13 +39,14 @@ public class Main {
         //      rhythm is ability to play complex rhythms (snare)
         //      technique is ability to play difficult instruments (mallets, timpani)
         //      loudness is ability and willingness to play exposed parts (piano solo)
-        Person jack = new Person("Jack", 10, 10, 10);
-        Person piper = new Person("Piper", 7, 7, 5);
-        Person cooper = new Person("Cooper", 6, 8, 7);
-        Person max = new Person("Max", 6, 8, 7);
-        Person aster = new Person("Aster", 6, 8, 7);
-        Person steven = new Person("Steven", 6, 8, 7);
-        Person natalee = new Person("Natalee", 2, 2, 2);
+        Person jack = new Person("Jack", 10, 10, 7);
+        Person piper = new Person("Piper", 6, 8, 5);
+        Person cooper = new Person("Cooper", 7, 7, 7);
+        Person max = new Person("Max", 5, 8, 6);
+        Person aster = new Person("Aster", 4, 2, 3);
+        Person steven = new Person("Steven", 6, 8, 4);
+        Person natalee = new Person("Natalee", 2, 2, 1);
+        Person miles = new Person("Miles", 8, 4, 4);
         
 
         // set standards and parameters
@@ -54,7 +55,7 @@ public class Main {
         //      best fits to challenge each participant with parts that are close to their ability level
         //      mix is a combination of both, optimizing for both challenge and ease
         // sharpness amplifies the danger of being assigned a part above any of your skill levels
-        Person.setFitMethod("Mix");
+        Person.setFitMethod("Best");
         Person.setSharpness(1.3);
         
         // print matrix, assign parts
