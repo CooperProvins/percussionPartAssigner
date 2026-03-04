@@ -22,10 +22,10 @@ public class Main {
         Part malletsPart = new Part(mallets, "Mallets Part");
 
         // initialize instruments
-        // rhythm is how complex the rhythms are
-        // technique is how difficult the instruments is to play
-        // loudness is how exposed the part is
         // Instrument name = new Instrument(part, "Instrument Name", rhythm, technique, loudness);
+        //      rhythm is how complex the rhythms are
+        //      technique is how difficult the instruments is to play
+        //      loudness is how exposed the part is
         Instrument windChimes1 = new Instrument(part1,"Wind Chimes 1",4,2,3);
         Instrument windChimes2 = new Instrument(part2, "Wind Chimes 2",8,2,10);
         Instrument windChimes3 = new Instrument(part3, "Wind Chimes 3",9,2,1);
@@ -35,13 +35,18 @@ public class Main {
         Instrument glockenspiel = new Instrument(malletsPart, "Glockenspiel", 4,6,7);
 
         // initialize people
-        // rhythm is ability to play complex rhythms (snare)
-        // technique is ability to play difficult instruments (mallets, timpani)
-        // loudness is ability and willingness to play exposed parts (piano solo)
+        // Person name = new Person("name", rhythm, technique, loudness);
+        //      rhythm is ability to play complex rhythms (snare)
+        //      technique is ability to play difficult instruments (mallets, timpani)
+        //      loudness is ability and willingness to play exposed parts (piano solo)
         Person jack = new Person("Jack", 10, 10, 10);
-        Person cooper = new Person("Cooper", 6, 8, 7);
-        Person natalee = new Person("Natalee", 2, 2, 2);
         Person piper = new Person("Piper", 7, 7, 5);
+        Person cooper = new Person("Cooper", 6, 8, 7);
+        Person max = new Person("Max", 6, 8, 7);
+        Person aster = new Person("Aster", 6, 8, 7);
+        Person steven = new Person("Steven", 6, 8, 7);
+        Person natalee = new Person("Natalee", 2, 2, 2);
+        
 
         // set standards and parameters
         // fit method is Easy, Best, or Mix
