@@ -43,10 +43,11 @@ public class Main {
         Person piper = new Person("Piper", 6, 8, 5);
         Person cooper = new Person("Cooper", 7, 7, 7);
         Person max = new Person("Max", 5, 8, 6);
-        Person aster = new Person("Aster", 4, 2, 3);
-        Person steven = new Person("Steven", 6, 8, 4);
+        //Person aster = new Person("Aster", 4, 2, 3);
+        //Person steven = new Person("Steven", 6, 8, 4);
         Person natalee = new Person("Natalee", 2, 2, 1);
         Person miles = new Person("Miles", 8, 4, 4);
+        Person malakai = new Person("Malakai", 8, 4, 6);
         
 
         // set standards and parameters
@@ -59,7 +60,9 @@ public class Main {
         Person.setSharpness(1.3);
         
         // print matrix, assign parts
-        vesuvius.printNormalFitMatrix();
+        Person.printAll();
+        vesuvius.print();
+        vesuvius.printFitMatrix();
         vesuvius.assignParts();
     }
     public static double[][] doubleDoubleArrayListToArray(ArrayList<ArrayList<Double>> list2D){
