@@ -40,6 +40,9 @@ public class Person {
         
         return returnString;
     }
+    public static void printAll(){ 
+        System.out.println(allToString());
+    }
     public double calculateFit(Part part){
         if (this.EasyorBestorMix.equals("Easy")){
             return Math.pow(sharpness, part.getRhythm()-rhythm)+Math.pow(sharpness, part.getTechnique()-technique)+Math.pow(sharpness, part.getLoudness()-loudness);
