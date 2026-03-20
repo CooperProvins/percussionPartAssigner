@@ -97,15 +97,9 @@ public class Part {
         int techniqueMax = instruments.get(0).getTechnique();
         int loudnessMax = instruments.get(0).getLoudness();
         for (Instrument instrument : instruments){
-            if (instrument.getRhythm()>rhythmMax){
-                rhythmMax = instrument.getRhythm();
-            }
-            if (instrument.getTechnique()>techniqueMax){
-                techniqueMax = instrument.getTechnique();
-            }
-            if (instrument.getLoudness()>loudnessMax){
-                loudnessMax = instrument.getLoudness();
-            }
+            rhythmMax = Math.max(instrument.getRhythm(),rhythmMax);
+            techniqueMax = Math.max(instrument.getTechnique(),techniqueMax);
+            loudnessMax = Math.max(instrument.getTechnique(),loudnessMax);
         }
         this.rhythm = rhythmMax;
         this.technique = techniqueMax;
