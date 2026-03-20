@@ -12,6 +12,11 @@ public class Instrument {
         part.addInstrument(this);
     }
 
+    // special methods
+
+    /** 
+     * @return String
+     */
     @Override
     public String toString() {
         String returnString = name + " (instrument){";
@@ -22,27 +27,51 @@ public class Instrument {
         return returnString;
     }
 
+    /** 
+     * @return String
+     */
     public String getName() {
         return name;
     }
+    /** 
+     * @return int
+     */
     public int getTechnique() {
         return technique;
     }
+    /** 
+     * @return int
+     */
     public int getRhythm() {
         return rhythm;
     }
+    /** 
+     * @return int
+     */
     public int getLoudness() {
         return loudness;
     }
+    /** 
+     * @param loudness
+     */
     public void setLoudness(int loudness) {
         this.loudness = loudness;
     }
+    /** 
+     * @param technique
+     */
     public void setTechnique(int technique) {
         this.technique = technique;
     }
+    /** 
+     * @param rhythm
+     */
     public void setRhythm(int rhythm) {
         this.rhythm = rhythm;
     }
+    /** 
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }

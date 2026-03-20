@@ -4,12 +4,16 @@ public class Part {
     private int rhythm;
     private int technique;
     private int loudness;
-    private int count;
     private String name;
     private Page page;
     private ArrayList<Instrument> instruments = new ArrayList<>();
 
     // constructor
+    /** 
+     * constructor for Page class, takes in a song and a name, adds the page to the song's list of pages
+     * @param page Song the page belongs to
+     * @param name Name of the part (e.g. "High Mallets")
+     */
     public Part(Page page, String name){
         rhythm = -1;
         technique = -1;
@@ -17,7 +21,6 @@ public class Part {
         this.name = name;
         page.addPart(this);
         this.page = page;
-        count = page.getParts().size();
     }
 
     // special methods
@@ -71,6 +74,7 @@ public class Part {
         returnString += "\n}";
         return returnString;
     }
+
     /** 
      * Prints the part information given by toString() to the console
      * Essentially a wrapper for toString() that prints the string instead of returning it
@@ -114,64 +118,61 @@ public class Part {
         this.page = myPage;
     }
     
-    /** 
-     * @return int
-     */
-    public int getCount() {
-        return count;
-    }
-    /** 
-     * @param count
-     */
-    public void setCount(int count) {
-        this.count = count;
-    }
-    /** 
-     * @return int
+    /** getter for technique field
+     * @return int representation of technique (1-10)
      */
     public int getTechnique() {
         return technique;
     }
-    /** 
-     * @return int
+
+    /** getter for loudness field
+     * @return int representation of loudness (1-10)
      */
     public int getLoudness() {
         return loudness;
     }
-    /** 
-     * @return int
+
+    /** getter for rhythm field
+     * @return int representation of rhythm (1-10)
      */
     public int getRhythm() {
         return rhythm;
     }
-    /** 
-     * @return ArrayList<Instrument>
+
+    /** Getter for arrayList of instruments the part owns
+     * @return ArrayList<Instrument> list of instruments the part owns
      */
     public ArrayList<Instrument> getInstruments() {
         return instruments;
     }
-    /** 
-     * @param technique
+
+    /** setter for technique field
+     * @param technique new int representation of technique (1-10)
      */
     public void setTechnique(int technique) {
         this.technique = technique;
     }
-    /** 
-     * @param loudness
+
+    /** setter for loudness field
+     * @param loudness new int representation of loudness (1-10)
      */
     public void setLoudness(int loudness) {
         this.loudness = loudness;
     }
-    /** 
-     * @param rhythm
+
+    /** setter for rhythm field
+     * @param rhythm new int representation of rhythm (1-10)
      */
     public void setRhythm(int rhythm) {
         this.rhythm = rhythm;
     }
-    /** 
-     * @param instruments
+
+    /** setter for arrayList of instruments the part owns
+     * private because if used in main it will seriously mess up the inheritance hierarchy
+     * @param instruments ArrayList<Instrument> list of instruments the part owns
      */
-    public void setInstruments(ArrayList<Instrument> instruments) {
+    private void setInstruments(ArrayList<Instrument> instruments) {
         this.instruments = instruments;
+        calculateStats();
     }
 }

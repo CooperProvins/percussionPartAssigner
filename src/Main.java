@@ -75,6 +75,7 @@ public class Main {
         johnWilliams.printFitMatrix();
         johnWilliams.assignParts();
     }
+
     /** 
      * takes in a rectangular 2D ArrayList of doubles and converts it to a 2D array of doubles
      * @param list2D
@@ -103,6 +104,7 @@ public class Main {
 
         return array2D;
     }
+    
     /** 
      * Prints a chart to console displaying values in 2d arraylist with row and coloumn names
      * @param matrix
