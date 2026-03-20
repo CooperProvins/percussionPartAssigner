@@ -15,9 +15,12 @@ public class Main {
 
         // initialize parts
         // Part name = new Part(page, "Part Name");
-        Part part1 = new Part(percussion1, "Wind Chimes 1");
-        Part part2 = new Part(percussion1, "Wind Chimes 2");
-        Part part3 = new Part(percussion2, "Wind Chimes Triangle");
+        Part part1 = new Part(percussion1, "Snare Drum");
+        Part part2 = new Part(percussion1, "Bass Drum");
+        Part part3 = new Part(percussion1, "Drumkit");
+        Part part21 = new Part(percussion2, "Sus. Cym, Bikehorn");
+        Part part22 = new Part(percussion2, "Crash Cym, Woodblock");
+        Part part23 = new Part(percussion2, "Wind Chimes, Cowbells");
         Part timpaniPart = new Part(timpaniPage, "Timpani");
         Part mallets1 = new Part(mallets, "Chimes, Bells");
         Part mallets2 = new Part(mallets, "Xylo");
@@ -53,7 +56,9 @@ public class Main {
         Person max = new Person("Max", 6, 8, 7);
         Person aster = new Person("Aster", 6, 8, 7);
         Person steven = new Person("Steven", 6, 8, 7);
-        Person natalee = new Person("Natalee", 2, 2, 2);
+        Person natalee = new Person("Natalee", 2, 2, 1);
+        Person miles = new Person("Miles", 2, 2, 3);
+        Person malakai = new Person("Malakai", 2, 2, 2);
         
 
         // set standards and parameters
@@ -62,12 +67,13 @@ public class Main {
         //      best fits to challenge each participant with parts that are close to their ability level
         //      mix is a combination of both, optimizing for both challenge and ease
         // sharpness amplifies the danger of being assigned a part above any of your skill levels
-        Person.setFitMethod("Mix");
-        Person.setSharpness(1.3);
+        Person.setFitMethod("Best");
+        Person.setSharpness(2);
         
         // print matrix, assign parts
-        vesuvius.printNormalFitMatrix();
-        vesuvius.assignParts();
+        System.out.println(johnWilliams);
+        johnWilliams.printNormalFitMatrix();
+        johnWilliams.assignParts();
     }
     public static double[][] doubleDoubleArrayListToArray(ArrayList<ArrayList<Double>> list2D){
         if (list2D == null) return null;
