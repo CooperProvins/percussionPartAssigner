@@ -72,9 +72,14 @@ public class Main {
         
         // print matrix, assign parts
         System.out.println(johnWilliams);
-        johnWilliams.printNormalFitMatrix();
+        johnWilliams.printFitMatrix();
         johnWilliams.assignParts();
     }
+    /** 
+     * takes in a rectangular 2D ArrayList of doubles and converts it to a 2D array of doubles
+     * @param list2D
+     * @return double[][]
+     */
     public static double[][] doubleDoubleArrayListToArray(ArrayList<ArrayList<Double>> list2D){
         if (list2D == null) return null;
 
@@ -98,6 +103,12 @@ public class Main {
 
         return array2D;
     }
+    /** 
+     * Prints a chart to console displaying values in 2d arraylist with row and coloumn names
+     * @param matrix
+     * @param coloumnNames
+     * @param rowNames
+     */
     public static void matrixPrint(ArrayList<ArrayList<Double>> matrix, ArrayList<String> coloumnNames, ArrayList<String> rowNames){
         int spacing = 30;
 
