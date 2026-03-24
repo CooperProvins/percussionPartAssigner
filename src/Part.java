@@ -9,6 +9,7 @@ public class Part {
     private ArrayList<Instrument> instruments = new ArrayList<>();
 
     // constructor
+    
     /** 
      * constructor for Page class, takes in a song and a name, adds the page to the song's list of pages
      * @param page Song the page belongs to
@@ -24,6 +25,7 @@ public class Part {
     }
 
     // special methods
+
     /** 
      * Adds an instrument to the part and updates the part's stats based on the stats of the instrument it owns
      * @param instrument instrument to be added
@@ -51,6 +53,7 @@ public class Part {
     }
 
     // utility methods
+
     /** 
      * Overrides toString to print out the part in a readable format
      * Prints info with indentation to show hierarchy

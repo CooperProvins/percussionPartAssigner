@@ -5,6 +5,7 @@ public class Page {
     private ArrayList<Part> parts = new ArrayList<>();
 
     // constructor
+
     /** 
      * constructor for Page class, takes in a song and a name, adds the page to the song's list of pages
      * @param song Song the page belongs to
@@ -16,6 +17,7 @@ public class Page {
     }
 
     // special methods
+
     /** 
      * Adds a part to the page
      * @param part part to be added
@@ -25,6 +27,7 @@ public class Page {
     }
 
     // utility methods
+    
     /** 
      * Overrides toString to print out the page in a readable format
      * Prints info with indentation to show hierarchy
