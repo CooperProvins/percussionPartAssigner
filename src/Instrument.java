@@ -4,6 +4,7 @@ public class Instrument {
     private int technique;
     private int loudness;
 
+    // constructor
     public Instrument(Part part, String name, int rhythm, int technique, int loudness){
         this.name = name;
         this.rhythm = rhythm;
@@ -13,6 +14,8 @@ public class Instrument {
     }
 
     // special methods
+
+    // utility methods
 
     /** 
      * @return String
